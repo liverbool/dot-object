@@ -208,10 +208,10 @@
        * setter
        * 
        * @param {String} path object path
-       * @param {Mixed} val
+       * @param {Mixed} value
        */
-      set: function (path, val) {
-        return accessor.set(path, val, obj);
+      set: function (path, value) {
+        return accessor.set(path, value, obj);
       },
       
       /**
@@ -225,6 +225,12 @@
         return accessor.object(ugly, mods);
       },
       
+      /**
+       * Manual transform
+       * 
+       * @param {String} str
+       * @param {Mixed} value
+       */
       convert: function (str, value) {
         return accessor.str(str, value, obj);
       }
