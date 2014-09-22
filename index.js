@@ -186,4 +186,6 @@ DotObject.prototype.set = function (path, val, obj) {
   }
 };
 
+window['PropertyAccessor'] = DotObject;
+
 // module.exports = DotObject;
