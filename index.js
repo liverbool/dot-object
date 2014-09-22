@@ -189,7 +189,46 @@
   };
   
   // Interface
-  window['PropertyAccessor'] = DotObject;
-  PropertyAccessor.prototype.get = DotObject.prototype.pick;
+  function PropertyAccess(obj, seperator, override) {
+    accessor = new DotObject(seperator, override);
+    
+    return {
+      
+      /**
+       * Getter
+       * 
+       * @param {String} path object path
+       * @param {Boolean} remove
+       */
+      get: function (path, remove) {
+        return accessor.pick(path, obj, remove);
+      }
+      
+      /**
+       * setter
+       * 
+       * @param {String} path object path
+       * @param {Mixed} val
+       */
+      set: function (path, val) {
+        return accessor.set(path, val, obj);
+      },
+      
+      /**
+       * Transorm Ugly object structure to beautiful object
+       * @see https://github.com/liverbool/dot-object#transform-an-object
+       * 
+       * @param {Object} agly
+       * @param {Object} mods
+       */
+      transform: function (ugly, mods) {
+        return accessor.object(ugly, mods);
+      },
+      
+      convert: function (str, value) {
+        return accessor.str(str, value, obj);
+      }
+    };
+  }
 
 }).call(this);
