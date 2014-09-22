@@ -186,4 +186,4 @@ DotObject.prototype.set = function (path, val, obj) {
   }
 };
 
-module.exports = DotObject;
+// module.exports = DotObject;
