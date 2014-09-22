@@ -186,6 +186,6 @@ DotObject.prototype.set = function (path, val, obj) {
   }
 };
 
+// Interface
 window['PropertyAccessor'] = DotObject;
-
-// module.exports = DotObject;
+PropertyAccessor.prototype.get = DotObject.prototype.pick;
