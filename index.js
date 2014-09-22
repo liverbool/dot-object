@@ -202,7 +202,7 @@
        */
       get: function (path, remove) {
         return accessor.pick(path, obj, remove);
-      }
+      },
       
       /**
        * setter
