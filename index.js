@@ -189,9 +189,9 @@
   };
 
   // Interface
-  function PropertyAccess(obj, seperator, override) {
+  function PropertyAccess(obj, override, seperator) {
     this.__proto__.accessor = new DotObject(seperator, override);
-    this.__proto__.obj = obj;
+    this.obj = obj;
   }
 
   /**
@@ -233,6 +233,13 @@
    */
   PropertyAccess.prototype.convert = function (str, value) {
     return this.accessor.str(str, value, this.obj);
+  };
+
+  /**
+   * get all
+   */
+  PropertyAccess.prototype.all = function () {
+    return this.obj;
   };
 
   // safe for minify
